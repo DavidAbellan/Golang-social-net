@@ -21,6 +21,7 @@ func Manejadores() {
 	/*EndPoints*/
 	router.HandleFunc("/registro", middlew.ChequeoBD(routers.Registro)).Methods("POST")
 	router.HandleFunc("/login", middlew.ChequeoBD(routers.Login)).Methods("POST")
+	router.HandleFunc("/ver_perfil", middlew.ChequeoBD(middlew.ValidarToken(routers.VerPerfil))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
