@@ -37,7 +37,7 @@ func LeerTweets(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Error al rescuperar los tweets", http.StatusBadRequest)
 		return
 	}
-	w.Header().Set("content-type", "application/json")
+	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(resp)
 }

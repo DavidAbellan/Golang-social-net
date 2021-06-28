@@ -34,6 +34,7 @@ func Manejadores() {
 	router.HandleFunc("/baja_relacion", middlew.ChequeoBD(middlew.ValidarToken(routers.BajaRelacion))).Methods("DELETE")
 	router.HandleFunc("/consulta_relacion", middlew.ChequeoBD(middlew.ValidarToken(routers.ConsultaRelacion))).Methods("GET")
 	router.HandleFunc("/lista_usuarios", middlew.ChequeoBD(middlew.ValidarToken(routers.ListaUsuarios))).Methods("GET")
+	router.HandleFunc("/tweets_usuarios", middlew.ChequeoBD(middlew.ValidarToken(routers.LeoTweetsDeLosFollowers))).Methods("GET")
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
